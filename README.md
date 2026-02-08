@@ -2,6 +2,16 @@
 
 BFF em **Python/FastAPI** com autenticação JWT simples e rotas de proxy para serviços core.
 
+## Imagem Docker no GHCR
+
+A imagem publicada automaticamente pelo GitHub Actions fica em:
+
+- `ghcr.io/<owner>/<repo>:main`
+
+Exemplo para este repositório:
+
+- `ghcr.io/${GITHUB_REPOSITORY}:main`
+
 ## Funcionalidades
 
 - Middleware JWT com chave simétrica (`JWT_SECRET`) para endpoints protegidos.
@@ -14,11 +24,13 @@ BFF em **Python/FastAPI** com autenticação JWT simples e rotas de proxy para s
   - `/status*` -> `TELEMETRY_API_URL`
   - `/telemetry*` -> `TELEMETRY_API_URL`
 
-## Configuração por variáveis de ambiente
+## Variáveis de ambiente necessárias
 
 - `DEVICE_REGISTRY_URL` (default: `http://localhost:8001`)
 - `TELEMETRY_API_URL` (default: `http://localhost:8002`)
 - `JWT_SECRET` (default: `change-me`)
+
+> Para ambiente de produção, defina explicitamente as 3 variáveis acima (especialmente `JWT_SECRET`).
 
 ## Executar localmente
 
